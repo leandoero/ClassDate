@@ -26,10 +26,12 @@ public:
 	Date();
 	Date(int y, int m, int d);
 	Date(string date);
-	void Set(string date);
 	unsigned int GetYear();
 	unsigned int GetMonth();
 	unsigned int GetDay();
+	void SetYear(unsigned int year);
+	void SetMonth(unsigned int month);
+	void SetDay(unsigned int day);
 	void dateInDays(unsigned int daysToBeRealized, unsigned int year, unsigned int month, unsigned int day);
 	void DateInDaysBack(unsigned int daysToBeRealized, unsigned int year, unsigned int month, unsigned int day);
 	void ConvertDateToDays(unsigned int year, unsigned int month, unsigned int day, Date date, int& days);

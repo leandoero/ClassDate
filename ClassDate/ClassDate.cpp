@@ -8,12 +8,9 @@ Date::Date() {					//конструктор без параметров
 }
 Date::Date(int y, int m, int d) : year(y), month(m), day(d) {}			//констуктор с параметрами
 Date::Date(string date) {
-	Set(date);
-}
-void Date::Set(string date) {
 	std::istringstream dateStream(date);		//используем для разбора строки 
 	char delimiter;
-	dateStream >> this->year >> delimiter >> this->month >> delimiter >> this->day;
+	dateStream >> year >> delimiter >> month >> delimiter >> day;
 	if (month < 1 || month > 12) {
 		start();
 	}
@@ -22,7 +19,7 @@ void Date::Set(string date) {
 	}
 	else if (year < 0) {
 		start();
-	}
+	} 
 }
 unsigned int Date::GetYear() {
 	return year;
@@ -32,6 +29,15 @@ unsigned int Date::GetMonth() {
 }
 unsigned int Date::GetDay() {
 	return day;
+}
+void Date::SetYear(unsigned int year) {
+	this->year = year;
+}
+void Date::SetMonth(unsigned int month) {
+	this->month = month;
+}
+void Date::SetDay(unsigned int day) {
+	this->day = day;
 }
 void Date::dateInDays(unsigned int daysToBeRealized, unsigned int year, unsigned int month, unsigned int day) {
 	int count = 0;
@@ -94,9 +100,9 @@ void Date::dateInDays(unsigned int daysToBeRealized, unsigned int year, unsigned
 			}
 		}
 	}
-	cout << year << "." << (month < 10 ? "0" : "") << month << "."
-		<< ((daysForOutput) < 10 ? "0" : "") << daysForOutput << endl;
-
+	SetYear(year);
+	SetMonth(month);
+	SetDay(daysForOutput);
 }
 void Date::DateInDaysBack(unsigned int daysToBeRealized, unsigned int year, unsigned int month, unsigned int day) {
 	int count = 0;
@@ -162,9 +168,9 @@ void Date::DateInDaysBack(unsigned int daysToBeRealized, unsigned int year, unsi
 		}
 
 	}
-	cout << year << "." << (month < 10 ? "0" : "") << month << "."
-		<< (daysForOutput < 10 ? "0" : "") << daysForOutput << endl;
-
+	SetYear(year);
+	SetMonth(month);
+	SetDay(daysForOutput);
 }
 void Date::ConvertDateToDays(unsigned int year, unsigned int month, unsigned int day, Date date, int& days)
 {
